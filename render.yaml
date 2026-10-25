@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: jarvis-ai-assistant
+    runtime: python
+    buildCommand: pip install openai requests certifi psutil scikit-learn groq
+    startCommand: python jarvis_server.py
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false       # You set this manually in Render dashboard
+      - key: PORT
+        generateValue: true
+    healthCheckPath: /api/state

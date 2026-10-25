@@ -17,8 +17,8 @@ import urllib.request
 import jarvis_brain
 import jarvis_market
 
-PORT = 8765
-HOST = "127.0.0.1"
+PORT = int(os.environ.get("PORT", 8765))
+HOST = "0.0.0.0"  # Render requires binding to 0.0.0.0
 
 # Shared Thread-Safe State
 _lock = threading.Lock()
